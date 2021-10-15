@@ -1,0 +1,7 @@
+-->get all urlgitrepos in a folder and subfolder
+
+find . -path '*/.git/config' -execdir git remote get-url origin \; 
+
+-->Upgrade_all gitrepos on a folder and subfolders:
+
+find . -type d -exec test -e '{}/.git' \; -print -prune | parallel cd "{}" \&\& git pull#
